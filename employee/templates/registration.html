@@ -2,4 +2,63 @@
 
 {% block title %}Sign Up{% endblock title %}
 
-{% block body %}This is signup{% endblock body %}
+{% block body %}
+
+<script>
+    function checkpassword()
+    {
+        if(document.signup.pwd.value != document.signup.cpwd.value ){
+            alert('Password and Confirm password did not matched');
+            document.signup.cpwd.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<div class="card shadow m-4">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom : 2px solid orange">Create an Account</h5>
+    </div>
+
+    <form class="row g-3 p-3" method="po
+    " name="signup" onsubmit="return checkpassword()">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" name="firstname" placeholder="Enter First Name">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name">
+        </div>
+
+        <div class="col-md-12">
+            <label class="form-label">Employee Code</label>
+            <input type="text" class="form-control" name="empcode" placeholder="Enter your Employee Code">
+        </div>
+
+        <div class="col-md-12">
+            <label class="form-label">Email ID</label>
+            <input type="email" class="form-control" name="email" placeholder="Email ID">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="pwd" placeholder="Enter the password">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="cpwd" placeholder="confirm the password">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock body %}
