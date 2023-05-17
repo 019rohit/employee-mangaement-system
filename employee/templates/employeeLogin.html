@@ -1,5 +1,46 @@
 {% extends 'base.html' %}
 
-{% block title %}Login{% endblock title %}
+{% block title %}Employee Login{% endblock title %}
 
-{% block body %}This is login{% endblock body %}
+{% block body %}
+
+<div class="card shadow m-5">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom : 2px solid orange">Employee Login</h5>
+    </div>
+
+    <form class="row g-3 p-3" method="post" name="signup" onsubmit="return checkpassword()">
+
+        {% csrf_token %}
+
+        <div class="col-md-12">
+            <label class="form-label">Email ID</label>
+            <input type="email" class="form-control" name="emailid" placeholder="Enter Your Email ID">
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter the password">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Logged in Successful');
+    window.location = ("/emp_home");
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Invalid Login Credentials, Try Again...');
+</script>
+{% endif %}
+
+{% endblock body %}
