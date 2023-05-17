@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Sign Up{% endblock title %}
+{% block title %}Create An Account{% endblock title %}
 
 {% block body %}
 
@@ -21,9 +21,10 @@
         <h5 class="p-2" style="border-bottom : 2px solid orange">Create an Account</h5>
     </div>
 
-    <form class="row g-3 p-3" method="po
-    " name="signup" onsubmit="return checkpassword()">
+    <form class="row g-3 p-3" method="post" name="signup" onsubmit="return checkpassword()">
+
         {% csrf_token %}
+
         <div class="col-md-6">
             <label class="form-label">First Name</label>
             <input type="text" class="form-control" name="firstname" placeholder="Enter First Name">
@@ -55,10 +56,23 @@
         </div>
 
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
     </form>
 
 </div>
+
+{% if error == "no" %}
+<script>
+    alert('Signup Successful');
+    window.location = ("/employeeLogin");
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something Went Wrong, Try Again...');
+</script>
+{% endif %}
 
 {% endblock body %}
