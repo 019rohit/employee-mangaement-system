@@ -18,6 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from employee.views import *
 
+admin.site.site_header = "EMS Admin"
+admin.site.site_title = "EMS Admin Portal"
+admin.site.index_title = "Welcome to EMS Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = 'index'),

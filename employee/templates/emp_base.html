@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock title %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+  <style>
+    .list-group-item{
+      padding: 8px !important;
+    }
+  </style>
+<body>
+
+  {% load static %}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2 p-0">
+        <center><img src="{% static 'images/manager.png' %}" width="100" height="100" class="img-thumbnail rounded-circle my-3 mx-1"></center>
+        <div class="list-group">
+          <a href="/emp_home" class="list-group-item list-group-item-warning list-group-item-action {% if '/emp_home' in request.path %}active{% endif %}">Dashboard</a>
+
+          <a href="" class="list-group-item list-group-item-warning list-group-item-action">Profile</a>
+          <a href="" class="list-group-item list-group-item-warning list-group-item-action">My Experience</a>
+          <a href="" class="list-group-item list-group-item-warning list-group-item-action">Edit My Experience</a>
+          <a href="" class="list-group-item list-group-item-warning list-group-item-action">My Education</a>
+          <a href="" class="list-group-item list-group-item-warning list-group-item-action">Edit My Education</a>
+          <a href="" class="list-group-item list-group-item-warning list-group-item-action">Change Password</a>
+          <a href="" class="list-group-item list-group-item-warning list-group-item-action">Logout</a>
+        </div>
+      </div>
+
+      <div class="col-sm-10 p-0">
+        <div class="container-fluid p-2">
+          <h5 class="text-center p-3 font-weight-bold" style= "border-bottom: 2px solid green; border-top: 2px solid green;">Employee Record Management System</h5>
+          <div class="card shadow" style="min-height: 86vh;">
+            {% block main %}{% endblock main %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
