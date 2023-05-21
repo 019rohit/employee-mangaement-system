@@ -28,5 +28,6 @@ urlpatterns = [
     path('registration/', registration, name = 'registration'),
     path('employeeLogin/', employeeLogin, name = 'employeeLogin'),
     path('adminLogin/', adminLogin, name = 'adminLogin'),
-    path('emp_home/', emp_home, name = 'emp_home')
+    path('emp_home/', emp_home, name = 'emp_home'),
+    path('profile/', profile, name = 'profile')
 ]

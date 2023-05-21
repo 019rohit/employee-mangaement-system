@@ -23,8 +23,7 @@
         <center><img src="{% static 'images/manager.png' %}" width="100" height="100" class="img-thumbnail rounded-circle my-3 mx-1"></center>
         <div class="list-group">
           <a href="/emp_home" class="list-group-item list-group-item-warning list-group-item-action {% if '/emp_home' in request.path %}active{% endif %}">Dashboard</a>
-
-          <a href="" class="list-group-item list-group-item-warning list-group-item-action">Profile</a>
+          <a href="/profile" class="list-group-item list-group-item-warning list-group-item-action {% if '/profile' in request.path %}active{% endif %}">Profile</a>
           <a href="" class="list-group-item list-group-item-warning list-group-item-action">My Experience</a>
           <a href="" class="list-group-item list-group-item-warning list-group-item-action">Edit My Experience</a>
           <a href="" class="list-group-item list-group-item-warning list-group-item-action">My Education</a>
