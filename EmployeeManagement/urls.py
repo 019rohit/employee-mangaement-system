@@ -29,5 +29,6 @@ urlpatterns = [
     path('employeeLogin/', employeeLogin, name = 'employeeLogin'),
     path('adminLogin/', adminLogin, name = 'adminLogin'),
     path('emp_home/', emp_home, name = 'emp_home'),
-    path('profile/', profile, name = 'profile')
+    path('profile/', profile, name = 'profile'),
+    path('logout/', Logout, name = 'logout')
 ]
