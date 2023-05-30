@@ -1,0 +1,46 @@
+{% extends 'emp_base.html' %}
+
+{% block main %}
+
+<div class="card shadow m-4">
+    <div class="card-body clearfix">
+        <a href="/edit_exp" class="btn btn-primary float-right btn-sm">Edit Work Experience</a>
+        <h5 class="p-2 text-danger" style="border-bottom : 2px solid orange">My Work Experience</h5>
+        
+        <div class="container-fluid">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>Company Name</th>
+                    <th>Designation</th>
+                    <th>Salary</th>
+                    <th>Duration(in Year)</th>
+                </tr>
+                <tr>
+                    <th>First Job</th>
+                    <td> {{experience.company1name}} </td>
+                    <td> {{experience.company1desig}} </td>
+                    <td> {{experience.company1salary}} </td>
+                    <td> {{experience.company1duration}} </td>
+                </tr>
+                <tr>
+                    <th>Second Job</th>
+                    <td> {{experience.company2name}} </td>
+                    <td> {{experience.company2desig}} </td>
+                    <td> {{experience.company2salary}} </td>
+                    <td> {{experience.company2duration}} </td>
+                </tr>
+                <tr>
+                    <th>Third Job</th>
+                    <td> {{experience.company3name}} </td>
+                    <td> {{experience.company3desig}} </td>
+                    <td> {{experience.company3salary}} </td>
+                    <td> {{experience.company3duration}} </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock main %}

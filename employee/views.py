@@ -18,6 +18,8 @@ def registration(request):
         try:
             user = User.objects.create_user(first_name = fn, last_name = ln, username = em, password = pwd)
             EmployeeDetail.objects.create(user = user, empcode = ec)
+            EmployeeExperience.objects.create(user = user)
+            EmployeeEducation.objects.create(user = user)
             error = "no"
         except:
             error = "yes"
@@ -84,3 +86,52 @@ def profile(request):
 def Logout(request):
     logout(request)
     return redirect('index')
+
+def myexperience(request):
+    if not request.user.is_authenticated:
+        return redirect('employeeLogin')
+    user = request.user
+    experience = EmployeeExperience.objects.get(user=user)
+    return render(request, 'myexperience.html', locals())
+
+def edit_exp(request):
+    if not request.user.is_authenticated:
+        return redirect('employeeLogin')
+    error = ""
+    user = request.user
+    experience = EmployeeExperience.objects.get(user=user)
+    if request.method == "POST":
+        company1name = request.POST['company1name']
+        company1desig = request.POST['company1desig']
+        company1salary = request.POST['company1salary']
+        company1duration = request.POST['company1duration']
+        company2name = request.POST['company2name']
+        company2desig = request.POST['company2desig']
+        company2salary = request.POST['company2salary']
+        company2duration = request.POST['company2duration']
+        company3name = request.POST['company3name']
+        company3desig = request.POST['company3desig']
+        company3salary = request.POST['company3salary']
+        company3duration = request.POST['company3duration']
+
+        experience.company1name = company1name
+        experience.company1desig = company1desig
+        experience.company1salary = company1salary
+        experience.company1duration = company1duration
+
+        experience.company2name = company2name
+        experience.company2desig = company2desig
+        experience.company2salary = company2salary
+        experience.company2duration = company2duration
+
+        experience.company3name = company3name
+        experience.company3desig = company3desig
+        experience.company3salary = company3salary
+        experience.company3duration = company3duration
+
+        try:
+            experience.save()
+            error = "no"
+        except:
+            error = "yes"
+    return render(request, 'edit_exp.html', locals())

@@ -30,5 +30,7 @@ urlpatterns = [
     path('adminLogin/', adminLogin, name = 'adminLogin'),
     path('emp_home/', emp_home, name = 'emp_home'),
     path('profile/', profile, name = 'profile'),
-    path('logout/', Logout, name = 'logout')
+    path('logout/', Logout, name = 'logout'),
+    path('myexperience/', myexperience, name = 'myexperience'),
+    path('edit_exp/', edit_exp, name = 'edit_exp')
 ]
