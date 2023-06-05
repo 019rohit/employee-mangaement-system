@@ -1,0 +1,54 @@
+{% extends 'emp_base.html' %}
+
+{% block main %}
+
+<div class="card shadow m-4">
+    <div class="card-body">
+        <a href="/edit_education" class="btn btn-primary float-right btn-sm">Edit Education Details</a>
+        <h5 class="p-2 text-danger" style="border-bottom : 2px solid orange">My Education Details</h5>
+        
+        <div class="container-fluid">
+            <table class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>Course Name</th>
+                    <th>College(School)</th>
+                    <th>Year Of Passing</th>
+                    <th>Marks(in Percentage)</th>
+                </tr>
+                <tr>
+                    <th>Post Graduation</th>
+                    <td> {{education.coursepg}} </td>
+                    <td> {{education.schoolclgpg}} </td>
+                    <td> {{education.yearofpassingpg}} </td>
+                    <td> {{education.percentagepg}} </td>
+                </tr>
+                <tr>
+                    <th>Graduation</th>
+                    <td> {{education.coursegra}} </td>
+                    <td> {{education.schoolclggra}} </td>
+                    <td> {{education.yearofpassinggra}} </td>
+                    <td> {{education.percentagegra}} </td>
+                </tr>
+                <tr>
+                    <th>Senior Secondary School</th>
+                    <td> {{education.coursessc}} </td>
+                    <td> {{education.schoolclgssc}} </td>
+                    <td> {{education.yearofpassingssc}} </td>
+                    <td> {{education.percentagessc}} </td>
+                </tr>
+
+                <tr>
+                    <th>Higher Secondary School</th>
+                    <td> {{education.coursehsc}} </td>
+                    <td> {{education.schoolclghsc}} </td>
+                    <td> {{education.yearofpassinghsc}} </td>
+                    <td> {{education.percentagehsc}} </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock main %}

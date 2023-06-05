@@ -135,3 +135,65 @@ def edit_exp(request):
         except:
             error = "yes"
     return render(request, 'edit_exp.html', locals())
+
+def education(request):
+    if not request.user.is_authenticated:
+        return redirect('employeeLogin')
+    user = request.user
+    education = EmployeeEducation.objects.get(user=user)
+    return render(request, 'education.html', locals())
+
+def edit_education(request):
+    if not request.user.is_authenticated:
+        return redirect('employeeLogin')
+    error = ""
+    user = request.user
+    education = EmployeeEducation.objects.get(user=user)
+    if request.method == "POST":
+
+        coursepg = request.POST['coursepg']
+        schoolclgpg = request.POST['schoolclgpg']
+        yearofpassingpg = request.POST['yearofpassingpg']
+        percentagepg = request.POST['percentagepg']
+
+        coursegra = request.POST['coursegra']
+        schoolclggra = request.POST['schoolclggra']
+        yearofpassinggra = request.POST['yearofpassinggra']
+        percentagegra = request.POST['percentagegra']
+
+        coursessc = request.POST['coursessc']
+        schoolclgssc = request.POST['schoolclgssc']
+        yearofpassingssc = request.POST['yearofpassingssc']
+        percentagessc = request.POST['percentagessc']
+
+        coursehsc = request.POST['coursehsc']
+        schoolclghsc = request.POST['schoolclghsc']
+        yearofpassinghsc = request.POST['yearofpassinghsc']
+        percentagehsc = request.POST['percentagehsc']
+
+        education.coursepg = coursepg
+        education.schoolclgpg = schoolclgpg
+        education.yearofpassingpg = yearofpassingpg
+        education.percentagepg = percentagepg
+
+        education.coursegra = coursegra
+        education.schoolclggra = schoolclggra
+        education.yearofpassinggra = yearofpassinggra
+        education.percentagegra = percentagegra
+
+        education.coursessc = coursessc
+        education.schoolclgssc = schoolclgssc
+        education.yearofpassingssc = yearofpassingssc
+        education.percentagessc = percentagessc
+
+        education.coursehsc = coursehsc
+        education.schoolclghsc = schoolclghsc
+        education.yearofpassinghsc = yearofpassinghsc
+        education.percentagehsc = percentagehsc
+
+        try:
+            education.save()
+            error = "no"
+        except:
+            error = "yes"
+    return render(request, 'edit_education.html', locals())
