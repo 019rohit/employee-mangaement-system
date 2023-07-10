@@ -34,5 +34,6 @@ urlpatterns = [
     path('myexperience/', myexperience, name = 'myexperience'),
     path('edit_exp/', edit_exp, name = 'edit_exp'),
     path('education/', education, name = 'education'),
-    path('edit_education/', edit_education, name = 'edit_education')
+    path('edit_education/', edit_education, name = 'edit_education'),
+    path('change_password/', change_password, name = 'change_password')
 ]
